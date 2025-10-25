@@ -11,12 +11,25 @@ const menuItems = [
     { name: 'Eventforge', href: '/events' },
     { name: 'Discover', href: '/discover' },
     { name: 'Create Event', href: '/events/create' },
-    { name: 'About', href: '#' },
+    { name: 'Services', href: '/#features' },
 ]
 
 const Header = () => {
     const [menuState, setMenuState] = React.useState(false)
     const [isScrolled, setIsScrolled] = React.useState(false)
+
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        const href = e.currentTarget.getAttribute('href')
+        if (href?.startsWith('/#')) {
+            e.preventDefault()
+            const targetId = href.replace('/#', '')
+            const elem = document.getElementById(targetId)
+            if (elem) {
+                elem.scrollIntoView({ behavior: 'smooth' })
+            }
+            setMenuState(false) // Close mobile menu after clicking
+        }
+    }
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -51,6 +64,7 @@ const Header = () => {
                                     <li key={index}>
                                         <Link
                                             href={item.href}
+                                            onClick={handleNavClick}
                                             className="text-muted-foreground hover:text-accent-foreground block duration-150">
                                             <span>{item.name}</span>
                                         </Link>
