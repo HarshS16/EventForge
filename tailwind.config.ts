@@ -27,11 +27,6 @@ module.exports = withUt({
           DEFAULT: '#8B5CF6',
           foreground: 'hsl(var(--primary-foreground))',
         },
-        accent: {
-          500: '#06B6D4',
-          400: '#22D3EE',
-        },
-
         grey: {
           600: '#9CA3AF',
           500: '#6B7280',

@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 
 const menuItems = [
-    { name: 'Events', href: '/events' },
+    { name: 'Eventforge', href: '/events' },
     { name: 'Discover', href: '/discover' },
     { name: 'Create Event', href: '/events/create' },
     { name: 'About', href: '#' },

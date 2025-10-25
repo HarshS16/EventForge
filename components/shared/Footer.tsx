@@ -7,7 +7,7 @@ const links = [
         href: '#',
     },
     {
-        title: 'Events',
+        title: 'Eventforge',
         href: '/events',
     },
     {
