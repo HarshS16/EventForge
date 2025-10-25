@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { eventFormSchema } from "@/lib/validator"
 import * as z from 'zod'
 import { eventDefaultValues } from "@/constants"
+import { cn } from "@/lib/utils"
 import Dropdown from "./Dropdown"
 import { Textarea } from "@/components/ui/textarea"
 import { FileUploader } from "./FileUploader"
@@ -31,7 +32,13 @@ type EventFormProps = {
 }
 
 const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
-  const [files, setFiles] = useState<File[]>([])
+  const [files, setFiles] = useState<File[]>([]);
+  
+  const inputStyles = cn(
+    "flex h-[54px] w-full overflow-hidden rounded-lg bg-gray-700 px-4 py-2",
+    "text-gray-200 placeholder:text-gray-400",
+    "focus:outline-none focus:ring-2 focus:ring-purple-600"
+  );
   const initialValues = event && type === 'Update' 
     ? { 
       ...event, 
@@ -103,8 +110,8 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5">
-        <div className="flex flex-col gap-5 md:flex-row">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-8">
+        <div className="flex flex-col gap-5 bg-gray-800 rounded-xl p-8">
           <FormField
             control={form.control}
             name="title"
@@ -322,11 +329,11 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
           type="submit"
           size="lg"
           disabled={form.formState.isSubmitting}
-          className="button col-span-2 w-full"
+          className="button col-span-2 w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition-all"
         >
           {form.formState.isSubmitting ? (
             'Submitting...'
-          ): `${type} Event `}</Button>
+          ): `${type} Event`}</Button>
       </form>
     </Form>
   )

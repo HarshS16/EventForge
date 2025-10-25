@@ -8,8 +8,11 @@ const CreateEvent = () => {
 
   return (
     <>
-      <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
-        <h3 className="wrapper h3-bold text-center sm:text-left">Create Event</h3>
+      <section className="bg-gray-900 bg-dotted-pattern bg-contain py-5 md:py-10">
+        <div className="wrapper">
+          <h3 className="h3-bold text-center sm:text-left text-white">Create New Event</h3>
+          <p className="p-regular-20 mt-2 text-gray-400">Share your event with the community</p>
+        </div>
       </section>
 
       <div className="wrapper my-8">
